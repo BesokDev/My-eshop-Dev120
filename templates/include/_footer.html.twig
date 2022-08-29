@@ -1,0 +1,39 @@
+<footer class="footer">
+
+    {# ////////////////////////////////// FIRST PART //////////////////////////////////// #}
+    <div class="container border-top">
+        <div class="row mt-3">
+            <div class="col-12 col-md">
+                <h5>e-Shop</h5>
+                <small class="d-block text-muted">&copy; {{ "now"|date('Y') }}</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Catégories</h5>
+                <ul class="list-unstyled">
+
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-muted">Mentions légales</a></li>
+                    <li><a href="#" class="text-muted">Politique de confidentialité</a></li>
+                    <li><a href="#" class="text-muted">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {# ////////////////////////////////// SECOND PART //////////////////////////////////// #}
+    <div class="container-fluid bg-dark mt-5">
+        <p class="text-center text-white p-2 m-0">
+            &copy; e-Shop {{ "now"|date('Y') }} - Made with ❤ by
+            <a href="https://github.com/BesokDev"
+               class="text-reset"
+                    {#               data-bs-toggle="tooltip"#}
+                    {#               data-bs-placement="right"#}
+                    {#               data-bs-html="true"#}
+                    {#               title="Have a look to my GitHub <i class='fa-brands fa-github'></i>"#}
+            >Besok</a>
+        </p>
+    </div>
+</footer>
