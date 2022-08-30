@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center my-4">Inscrivez-vous !</h1>
+
+    <div class="row">
+        <div class="col-6 mx-auto">
+
+            {# équivaut à la balise ouvrante HTML #}
+            {# Vous pouvez désactiver le validateurHTML5 coté Twig avec :
+              => form_start(form, {'attr': {novalidate: 'novalidate'}})#}
+            {{ form_start(form) }} {# <form> #}
+
+            <div class="row">
+                <div class="col-6">{{ form_row(form.firstname) }}</div>
+                <div class="col-6">{{ form_row(form.lastname) }}</div>
+            </div>
+
+            {{ form_row(form.gender) }}
+
+            <div class="row">
+                <div class="col-6">{{ form_row(form.email) }}</div>
+                <div class="col-6">{{ form_row(form.password) }}</div>
+            </div>
+
+            {{ form_row(form.submit) }}
+
+            {{ form_end(form) }} {# </form> #}
+            {# équivaut à la balise fermante HTML #}
+        </div>
+    </div>
+
+{% endblock %}
