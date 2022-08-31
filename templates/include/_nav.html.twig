@@ -23,17 +23,21 @@
                     </li>
                 {% endif %}
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Espace Admin
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
+{# Pour vérifier le rôle d'un user, vous DEVEZ utiliser la fonction Twig is_granted() #}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Espace Admin
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="#">Gestion des produits</a></li>
+                            <li><a class="dropdown-item" href="#">Gestion des membres</a></li>
+                            <li><a class="dropdown-item" href="#">Gestion des commandes</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
+
 {#                <li class="nav-item">#}
 {#                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>#}
 {#                </li>#}
