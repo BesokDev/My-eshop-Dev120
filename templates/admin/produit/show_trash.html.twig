@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voir les archives{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center my-3">Produits archivés</h1>
+
+    {% include 'include/_flashes.html.twig' %}
+
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <a href="{{ path('show_produits') }}" class="d-block mx-auto col-4 btn btn-primary">Retour</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-11 mx-auto my-5">
+
+            <table class="table table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Couleur</th>
+                    <th>Taille</th>
+                    <th>Genre</th>
+                    <th>Photo</th>
+                    <th>Prix</th>
+                    <th>Stock</th>
+                    <th>Ajouté le:</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+
+{#                {% for produit in produits %}#}
+{#                    <tr>#}
+{#                        <td>{{ produit.id }}</td>#}
+{#                        <td>{{ produit.title }}</td>#}
+{#                        <td>{{ produit.description }}</td>#}
+{#                        <td>{{ produit.color }}</td>#}
+{#                        <td>{{ produit.size }}</td>#}
+{#                        <td>{{ produit.gender }}</td>#}
+{#                        <td>#}
+{#                            <img src="{{ asset('uploads/' ~ produit.photo) }}" alt="image de produit" width="80" height="58" class="img-custom">#}
+{#                        </td>#}
+{#                        <td>{{ produit.price }}</td>#}
+{#                        <td>{{ produit.stock }}</td>#}
+{#                        <td>{{ produit.createdAt | date('d/m/Y') }}</td>#}
+{#                        <td>#}
+{#                            <a href="{{ path('update_produit', {'id': produit.id}) }}" title="Modifier le produit" class="text-center align-middle text-warning"><i class="fa-solid fa-edit"></i></a>#}
+{#                            <a href="{{ path('soft_delete_produit', {'id': produit.id}) }}" title="Archiver le produit" class="text-center align-middle text-danger" onclick="return confirm('Voulez-vous archiver ce produit ?\n Si oui, il sera off-line.')"><i class="fa-solid fa-trash"></i></a>#}
+{#                        </td>#}
+{#                    </tr>#}
+{#                {% else %}#}
+{#                    <tr>#}
+{#                        <td colspan="11" class="bg-warning text-center">Aucun produit en ligne</td>#}
+{#                    </tr>#}
+{#                {% endfor %}#}
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+

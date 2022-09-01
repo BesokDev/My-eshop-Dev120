@@ -1,0 +1,14 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*body {*/
+/*    background-color: rgba(255, 228, 117, 0.66) !important;*/
+/*}*/
+
+.img-custom {
+    object-fit: contain;
+}
+
