@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-10 mx-auto my-3">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div role="alert" class="alert alert-dismissible fade show alert-{{ label }}">
+                    {% if label is same as 'success' %}
+                        <span class="alert-inner--icon"><i class="fa fa-thumbs-up"></i></span>
+                    {% else %}
+                        <span class="alert-inner--icon"><i class="fa fa-thumbs-down"></i></span>
+                    {% endif %}
+                    <span class="alert-inner--text"><strong>{{ label | title }} : </strong>{{ message | raw }}</span>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
