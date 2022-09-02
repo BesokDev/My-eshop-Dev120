@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon panier{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center my-3">Mon panier</h1>
+
+    <div class="row">
+        <div class="col-10 mx-auto">
+            {% include 'include/_flashes.html.twig' %}
+        </div>
+    </div>
+
+    <div class="row my-3">
+        <div class="col-10 mx-auto">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Produit</th>
+                        <th class="text-center">Quantité</th>
+                        <th class="text-center">P.U</th>
+                        <th class="text-center">Total</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for item in app.session.get('panier') %}
+
+                        <tr>
+                            <td class="align-middle text-center">{{ item['produit'].id }}</td>
+                            <td class="align-middle text-center">{{ item['produit'].title }}</td>
+                            <td class="align-middle text-center">{{ item['quantity'] }}</td>
+                            <td class="align-middle text-center">{{ item['produit'].price }}</td>
+                            <td class="align-middle text-center">{{ item['produit'].price * item['quantity'] }}</td>
+                            <td class="align-middle text-center">
+                                <a href=""></a>
+                            </td>
+                        </tr>
+
+                    {% else %}
+                        <tr>
+                            <td colspan="6" class="text-center bg-warning">Votre panier est vide</td>
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="align-middle text-center">Montant total : </td>
+                        <td class="align-middle text-center">{{ total }} €</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="row">
+                <a href="" class="btn btn-danger col-6 text-center">Vider mon panier</a>
+                <a href="" class="btn btn-success col-6 text-center">Valider mon panier</a>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
