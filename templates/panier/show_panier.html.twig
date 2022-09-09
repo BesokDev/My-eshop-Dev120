@@ -37,7 +37,7 @@
                             <td class="align-middle text-center">{{ item['produit'].price }}</td>
                             <td class="align-middle text-center">{{ item['produit'].price * item['quantity'] }}</td>
                             <td class="align-middle text-center">
-                                <a href=""></a>
+                                <a href="{{ path('delete_item', {'id': item['produit'].id}) }}" title="Supprimer le produit" class="btn btn-sm btn-danger"><i class="fa-solid fa-times"></i></a>
                             </td>
                         </tr>
 
@@ -59,7 +59,7 @@
 
             <div class="row">
                 <a href="" class="btn btn-danger col-6 text-center">Vider mon panier</a>
-                <a href="" class="btn btn-success col-6 text-center">Valider mon panier</a>
+                <a href="{{ path('validate_commande') }}" class="btn btn-success col-6 text-center">Valider mon panier</a>
             </div>
 
         </div>

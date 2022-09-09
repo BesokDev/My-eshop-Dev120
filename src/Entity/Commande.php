@@ -37,7 +37,7 @@ class Commande
     private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'commandes')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Produit $product = null;
 
     public function getId(): ?int

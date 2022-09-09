@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center my-3">Vos informations</h1>
+
+    <div class="row">
+        <div class="col-10 mx-auto">
+            {% include 'include/_flashes.html.twig' %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-8 mx-auto">
+
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active"
+                            id="pills-home-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#pills-home"
+                            type="button"
+                            role="tab"
+                            aria-controls="pills-home"
+                            aria-selected="true">Voir mon compte</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link"
+                            id="pills-profile-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#pills-profile"
+                            type="button"
+                            role="tab"
+                            aria-controls="pills-profile"
+                            aria-selected="false">Mes commandes</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active mb-3" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                    <div class="card text-center">
+                        <div class="card-header bg-warning">
+                            Mes informations de compte
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ app.user.firstname }} {{ app.user.lastname }}</h5>
+                            <p class="card-text">Email : {{ app.user.email }}</p>
+                            <p class="card-text">Rôle: {{ app.user.roles is same as 'ROLE_ADMIN' ? 'Administrateur' : 'Membre' }}</p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <a href="#" class="btn btn-warning text-white">Modifier mes informations</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="#" class="btn btn-warning text-danger">Changer mon mot de passe</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> {# end .pills-home-tab #}
+
+                {# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// #}
+
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                    <div class="row">
+                        <div class="col">
+
+                            <table class="table">
+
+                                <thead class="table-dark">
+                                <tr>
+                                    <th>Commande N°#</th>
+                                    <th>Quantité</th>
+                                    <th>Montant</th>
+                                    <th>État</th>
+                                    <th>Passée le</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% for  command in commands %}
+
+                                    <tr>
+                                        <td>{{ command.id }}</td>
+                                        <td>{{ command.quantity }}</td>
+                                        <td>{{ command.total }}</td>
+                                        <td>{{ command.status }}</td>
+                                        <td>{{ command.createdAt | date('d/m/Y') }} - {{ command.createdAt | date('H:i') }}</td>
+                                        <td>
+                                            <a href="" title="Annuler la commande" class="btn btn-sm btn-danger"><i class="fa-solid fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="8" class="text-center bg-warning">Aucune commande en cours</td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>{# end .pills-profile-tab #}
+
+                {# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// #}
+
+            </div>
+
+        </div> {# end .col-8 #}
+    </div> {# end .row #}
+
+{% endblock %}
